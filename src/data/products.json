@@ -1,0 +1,82 @@
+[
+  {
+    "Id": 1,
+    "Name": "Mi A1",
+    "InGallery": 1,
+    "Type": "Electronics and gadets",
+    "Price": 12000,
+    "Image": "product-1",
+    "Brand": "MI",
+
+    "sub_type": "Mobie phones",
+    "country": "IN",
+    "Title_of_product": "Mobiles",
+    "quantity": 10,
+    "terms_and_condition": "free freee freee",
+    "desc": {
+      "ram": "1GB",
+      "processor": "snacpdragon",
+      "display": "LCD"
+    }
+  },
+  {
+    "Id": 2,
+    "Name": "Mi A2",
+    "InGallery": 1,
+    "Type": "Electronics and gadets",
+    "Price": 12000,
+    "Image": "product-1",
+    "Brand": "MI",
+
+    "sub_type": "Mobie phones",
+    "country": "IN",
+    "Title_of_product": "Mobiles",
+    "quantity": 10,
+    "terms_and_condition": "free freee freee",
+    "desc": {
+      "ram": "1GB",
+      "processor": "snacpdragon",
+      "display": "LCD"
+    }
+  },
+  {
+    "Id": 3,
+    "Name": "Mi A3",
+    "InGallery": 1,
+    "Type": "Electronics and gadets",
+    "Price": 12000,
+    "Image": "product-1",
+    "Brand": "MI",
+
+    "sub_type": "Mobie phones",
+    "country": "IN",
+    "Title_of_product": "Mobiles",
+    "quantity": 10,
+    "terms_and_condition": "free freee freee",
+    "desc": {
+      "ram": "1GB",
+      "processor": "snacpdragon",
+      "display": "LCD"
+    }
+  },
+  {
+    "Id": 4,
+    "Name": "Mi A4",
+    "InGallery": 1,
+    "Type": "Electronics and gadets",
+    "Price": 12000,
+    "Image": "product-1",
+    "Brand": "MI",
+
+    "sub_type": "Mobie phones",
+    "country": "IN",
+    "Title_of_product": "Mobiles",
+    "quantity": 10,
+    "terms_and_condition": "free freee freee",
+    "desc": {
+      "ram": "1GB",
+      "processor": "snacpdragon",
+      "display": "LCD"
+    }
+  }
+]

@@ -1,0 +1,27 @@
+<div class="card">
+  <div class="card-img-wraper p-2">
+    <img class="card-img-top" src="assets/images/{{ product.Image }}.jpg" />
+    <ul class="list-inline text-center member-icons animate">
+      <li class="list-inline-item text-center">
+        <button
+          class="btn btn-primary"
+          routerLink="/product-detail/{{ product.Id }}"
+        >
+          <i class="far fa-edit"></i>
+        </button>
+      </li>
+      <li class="list-inline-item">
+        <button class="btn btn-primary">
+          <i class="fas fa-binoculars"></i>
+        </button>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body p-2">
+    <h3>Name :{{ product.Name }}</h3>
+    <p>Brand :{{ product.Brand }}</p>
+    <p>Type :{{ product.Type }}</p>
+    <p>Price :{{ product.Price }}</p>
+    <p></p>
+  </div>
+</div>
