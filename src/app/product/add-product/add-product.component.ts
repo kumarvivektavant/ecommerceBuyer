@@ -8,12 +8,24 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./add-product.component.css'],
 })
 export class AddProductComponent implements OnInit {
+  Id: number = 1;
+  Name: string = '';
+  InGallery: number = 1;
+  Type: string = '';
+  Price: number = 0;
+  Image?: string;
+  Brand: string = '';
+  sub_type: string = '';
+  country: String = '';
+  quantity: number = 0;
+  terms_and_condition: string = '';
+  description: string = '';
   basicDetails = false;
   desc = false;
   photo = false;
   addAndDetails = false;
   activeButton = 'active';
-  @ViewChild('Form') addPropertyForm: NgForm | undefined;
+
   constructor(private router: Router) {}
 
   ngOnInit(): void {
@@ -22,9 +34,9 @@ export class AddProductComponent implements OnInit {
   onBack() {
     this.router.navigate(['/']);
   }
-  onSubmit() {
+  onSubmit(form: NgForm) {
     console.log('Congrats');
-    console.log(this.addPropertyForm);
+    console.log(form);
   }
   onDasicDetailsClick() {
     this.basicDetails = true;
@@ -49,5 +61,14 @@ export class AddProductComponent implements OnInit {
     this.desc = false;
     this.photo = true;
     this.addAndDetails = false;
+  }
+  onClickPlus() {
+    this.quantity += 1;
+  }
+  onClickMinus() {
+    if (this.quantity == 0) {
+      return;
+    }
+    this.quantity -= 1;
   }
 }

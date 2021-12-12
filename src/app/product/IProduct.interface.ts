@@ -5,15 +5,10 @@ export interface IProperty {
   Type: string;
   Price: number;
   Image?: string;
-  Brand: number;
+  Brand: string;
   sub_type: string;
   country: String;
-  Title_of_product: string;
   quantity: number;
   terms_and_condition: string;
-  desc: {
-    ram: String;
-    processor: string;
-    display: string;
-  };
+  description: string;
 }

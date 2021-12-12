@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
   onLogin(loginForm: NgForm) {
-    console.log(loginForm.value.userName);
+    console.log(loginForm.value.email);
     const token = this.authService.authUser(loginForm.value);
     if (token) {
       localStorage.setItem('token', token.userName);

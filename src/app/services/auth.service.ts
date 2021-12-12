@@ -6,6 +6,8 @@ import { Injectable } from '@angular/core';
 export class AuthService {
   constructor() {}
   authUser(user: any) {
+    console.log('Hello i am in auth');
+    console.log(user);
     let UserArray = [];
     if (localStorage.getItem('users')) {
       UserArray = JSON.parse(localStorage.getItem('users') || '{}');

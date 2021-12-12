@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BuyerserviceService } from 'src/app/services/buyerservice.service';
 import { IProperty } from '../IProduct.interface';
 
@@ -13,8 +13,11 @@ export class ProductListComponent implements OnInit {
   products: Array<IProperty> = [];
   constructor(
     private route: ActivatedRoute,
-    private buyerService: BuyerserviceService
-  ) {}
+    private buyerService: BuyerserviceService,
+    private router: Router
+  ) {
+    //this.router.navigateByUrl('/navbar');
+  }
 
   ngOnInit(): void {
     if (this.route.snapshot.url.toString()) {

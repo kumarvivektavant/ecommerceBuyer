@@ -22,14 +22,6 @@
       <li class="nav-item">
         <a
           class="nav-link"
-          (click)="onAddressClick()"
-          [ngClass]="addAndDetails ? 'active' : ''"
-          >Address</a
-        >
-      </li>
-      <li class="nav-item">
-        <a
-          class="nav-link"
           (click)="onPhotoClick()"
           [ngClass]="photo ? 'active' : ''"
           >Photo</a
@@ -40,33 +32,95 @@
   <!-- Navigation Tab end -->
 
   <!-- Basic Details  start-->
-  <div *ngIf="basicDetails" class="card-body">
-    <form (ngSubmit)="onSubmit()" #Form="ngForm">
+  <form #addProductForm="ngForm" (ngSubmit)="onSubmit(addProductForm)">
+    <div *ngIf="basicDetails" class="card-body">
       <div class="form-group col-12">
-        <label for="name">Name</label>
+        <br />
+        <!-- radio button -->
+        <label for="name"> Product Name : </label>
         <input
           type="text"
           class="form-control"
-          #propName="ngModel"
+          #proName="ngModel"
           ngModel
           name="Name"
           required
           minlength="5"
+          placeholder="Enter the product Name"
         />
-        <span *ngIf="!propName.valid && propName.touched" class="error-block">
-          <span>Please Provide Name </span>
-          <span>Name must be atleast 5 char long</span>
-        </span>
       </div>
 
       <div class="form-group col-12">
-        <label for="type">Type</label>
-        <input type="text" class="form-control" ngModel name="Type" />
+        <label for="type">Product Type</label>
+        <input
+          type="text"
+          class="form-control"
+          ngModel
+          name="Type"
+          placeholder="Enter the product Type"
+        />
       </div>
 
       <div class="form-group col-12">
         <label for="price">Brand</label>
-        <input type="text" class="form-control" ngModel name="Price" required />
+        <input
+          type="text"
+          class="form-control"
+          ngModel
+          name="Brand"
+          required
+          placeholder="Enter the Brand Name"
+        />
+      </div>
+      <div class="form-group col-12">
+        <label for="price">Price</label>
+        <input
+          type="text"
+          class="form-control"
+          ngModel
+          name="Price"
+          required
+          placeholder="Enter Price"
+        />
+      </div>
+      <div class="form-group col-12">
+        <label for="price">Quantity</label>
+        <div class="col-lg-2">
+          <div class="input-group">
+            <span class="input-group-btn">
+              <button
+                type="button"
+                class="quantity-left-minus btn btn-danger btn-number"
+                data-type="minus"
+                data-field=""
+                (click)="onClickMinus()"
+              >
+                <span class="glyphicon glyphicon-minus">-</span>
+              </button>
+            </span>
+            <input
+              type="text"
+              id="quantity"
+              ngModel
+              name="quantity"
+              class="form-control input-number"
+              value="{{ quantity }}"
+              min="1"
+              max="100"
+            />
+            <span class="input-group-btn">
+              <button
+                type="button"
+                class="quantity-right-plus btn btn-success btn-number"
+                data-type="plus"
+                data-field=""
+                (click)="onClickPlus()"
+              >
+                <span class="glyphicon glyphicon-plus">+</span>
+              </button>
+            </span>
+          </div>
+        </div>
       </div>
       <br />
       <button
@@ -77,39 +131,46 @@
       >
         Next
       </button>
-    </form>
-  </div>
-  <!-- Basic Details  end-->
+    </div>
+    <!-- Basic Details  end-->
 
-  <!-- description  and pricing start-->
-  <div *ngIf="desc" class="card-body">
-    <form (ngSubmit)="onSubmit()" #Form="ngForm">
+    <!-- description  and pricing start-->
+    <div *ngIf="desc" class="card-body">
       <div class="form-group col-12">
-        <label for="name">desc</label>
+        <label for="name">Product Description</label>
         <input
           type="text"
           class="form-control"
-          #propName="ngModel"
-          ngModel
-          name="Name"
+          placeholder="Enter onProduct Description"
           required
           minlength="5"
         />
-        <span *ngIf="!propName.valid && propName.touched" class="error-block">
-          <span>Please Provide Name </span>
-          <span>Name must be atleast 5 char long</span>
-        </span>
+      </div>
+      <div class="form-group col-12">
+        <label for="price">Product SubType</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Eg. for mobile enter - electronics gadgets"
+        />
+      </div>
+      <div class="form-group col-12">
+        <label for="type">Terms and conditinon</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Terms and condition for replacement and warrenty"
+        />
+      </div>
+      <div class="form-group col-12">
+        <label for="type">Country Origin</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter Country Origin"
+        />
       </div>
 
-      <div class="form-group col-12">
-        <label for="type">terms and conditin</label>
-        <input type="text" class="form-control" ngModel name="Type" />
-      </div>
-
-      <div class="form-group col-12">
-        <label for="price">Pricing</label>
-        <input type="text" class="form-control" ngModel name="Price" required />
-      </div>
       <br />
       <button
         type="submit"
@@ -123,66 +184,14 @@
         type="submit"
         class="btn btn-primary"
         style="margin-right: 10px"
-        (click)="onAddressClick()"
-      >
-        Next
-      </button>
-    </form>
-  </div>
-  <!-- description end-->
-
-  <!-- Address and other details start-->
-  <div *ngIf="addAndDetails" class="card-body">
-    <form (ngSubmit)="onSubmit()" #Form="ngForm">
-      <div class="form-group col-12">
-        <label for="name">Addresss</label>
-        <input
-          type="text"
-          class="form-control"
-          #propName="ngModel"
-          ngModel
-          name="Name"
-          required
-          minlength="5"
-        />
-        <span *ngIf="!propName.valid && propName.touched" class="error-block">
-          <span>Please Provide Name </span>
-          <span>Name must be atleast 5 char long</span>
-        </span>
-      </div>
-
-      <div class="form-group col-12">
-        <label for="type">pin</label>
-        <input type="text" class="form-control" ngModel name="Type" />
-      </div>
-
-      <div class="form-group col-12">
-        <label for="price">landmark</label>
-        <input type="text" class="form-control" ngModel name="Price" required />
-      </div>
-      <br />
-      <button
-        type="submit"
-        class="btn btn-primary"
-        style="margin-right: 10px"
-        (click)="onDescClick()"
-      >
-        previous
-      </button>
-      <button
-        type="submit"
-        class="btn btn-primary"
-        style="margin-right: 10px"
         (click)="onPhotoClick()"
       >
         Next
       </button>
-    </form>
-  </div>
-  <!-- Address and other details end-->
-  <!-- photo start-->
-  <div *ngIf="photo" class="card-body">
-    <form (ngSubmit)="onSubmit()" #Form="ngForm">
+    </div>
+
+    <!-- photo start-->
+    <div *ngIf="photo" class="card-body">
       <div class="form-group col-12">
         <div class="form-group col-12">
           <div class="photo-control">
@@ -191,21 +200,21 @@
           </div>
         </div>
       </div>
-
       <br />
       <button
         type="submit"
         class="btn btn-primary"
         style="margin-right: 10px"
-        (click)="onAddressClick()"
+        (click)="onDescClick()"
       >
         Previous
       </button>
-      <button type="submit" class="btn btn-primary" style="margin-right: 10px">
-        Save Data
-      </button>
+
       <button type="reset" class="btn btn-primary ml-2">Reset Data</button>
-    </form>
-  </div>
+    </div>
+    <button type="submit" class="btn btn-primary" style="margin-right: 10px">
+      Save Data
+    </button>
+  </form>
   <!-- photo end-->
 </div>
