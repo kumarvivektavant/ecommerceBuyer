@@ -1,3 +1,7 @@
 .nav.navbar-nav.navbar-right li a {
   color: blue;
 }
+.btn-success {
+  background-color: white;
+  color: #171729;
+}

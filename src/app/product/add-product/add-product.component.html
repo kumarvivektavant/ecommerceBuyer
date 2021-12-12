@@ -1,2 +1,211 @@
-<p>add-product works!</p>
-<button class="btn btn-primary" (click)="onBack()">Back</button>
+<div class="card">
+  <!-- Navigation Tab start -->
+  <div class="card-header">
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          [ngClass]="basicDetails ? 'active' : ''"
+          aria-current="page"
+          (click)="onDasicDetailsClick()"
+          >Basic Details Entry</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          (click)="onDescClick()"
+          [ngClass]="desc ? 'active' : 'notactive'"
+          >Description</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          (click)="onAddressClick()"
+          [ngClass]="addAndDetails ? 'active' : ''"
+          >Address</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          (click)="onPhotoClick()"
+          [ngClass]="photo ? 'active' : ''"
+          >Photo</a
+        >
+      </li>
+    </ul>
+  </div>
+  <!-- Navigation Tab end -->
+
+  <!-- Basic Details  start-->
+  <div *ngIf="basicDetails" class="card-body">
+    <form (ngSubmit)="onSubmit()" #Form="ngForm">
+      <div class="form-group col-12">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          #propName="ngModel"
+          ngModel
+          name="Name"
+          required
+          minlength="5"
+        />
+        <span *ngIf="!propName.valid && propName.touched" class="error-block">
+          <span>Please Provide Name </span>
+          <span>Name must be atleast 5 char long</span>
+        </span>
+      </div>
+
+      <div class="form-group col-12">
+        <label for="type">Type</label>
+        <input type="text" class="form-control" ngModel name="Type" />
+      </div>
+
+      <div class="form-group col-12">
+        <label for="price">Brand</label>
+        <input type="text" class="form-control" ngModel name="Price" required />
+      </div>
+      <br />
+      <button
+        type="submit"
+        class="btn btn-primary"
+        style="margin-right: 10px"
+        (click)="onDescClick()"
+      >
+        Next
+      </button>
+    </form>
+  </div>
+  <!-- Basic Details  end-->
+
+  <!-- description  and pricing start-->
+  <div *ngIf="desc" class="card-body">
+    <form (ngSubmit)="onSubmit()" #Form="ngForm">
+      <div class="form-group col-12">
+        <label for="name">desc</label>
+        <input
+          type="text"
+          class="form-control"
+          #propName="ngModel"
+          ngModel
+          name="Name"
+          required
+          minlength="5"
+        />
+        <span *ngIf="!propName.valid && propName.touched" class="error-block">
+          <span>Please Provide Name </span>
+          <span>Name must be atleast 5 char long</span>
+        </span>
+      </div>
+
+      <div class="form-group col-12">
+        <label for="type">terms and conditin</label>
+        <input type="text" class="form-control" ngModel name="Type" />
+      </div>
+
+      <div class="form-group col-12">
+        <label for="price">Pricing</label>
+        <input type="text" class="form-control" ngModel name="Price" required />
+      </div>
+      <br />
+      <button
+        type="submit"
+        class="btn btn-primary"
+        style="margin-right: 10px"
+        (click)="onDasicDetailsClick()"
+      >
+        previous
+      </button>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        style="margin-right: 10px"
+        (click)="onAddressClick()"
+      >
+        Next
+      </button>
+    </form>
+  </div>
+  <!-- description end-->
+
+  <!-- Address and other details start-->
+  <div *ngIf="addAndDetails" class="card-body">
+    <form (ngSubmit)="onSubmit()" #Form="ngForm">
+      <div class="form-group col-12">
+        <label for="name">Addresss</label>
+        <input
+          type="text"
+          class="form-control"
+          #propName="ngModel"
+          ngModel
+          name="Name"
+          required
+          minlength="5"
+        />
+        <span *ngIf="!propName.valid && propName.touched" class="error-block">
+          <span>Please Provide Name </span>
+          <span>Name must be atleast 5 char long</span>
+        </span>
+      </div>
+
+      <div class="form-group col-12">
+        <label for="type">pin</label>
+        <input type="text" class="form-control" ngModel name="Type" />
+      </div>
+
+      <div class="form-group col-12">
+        <label for="price">landmark</label>
+        <input type="text" class="form-control" ngModel name="Price" required />
+      </div>
+      <br />
+      <button
+        type="submit"
+        class="btn btn-primary"
+        style="margin-right: 10px"
+        (click)="onDescClick()"
+      >
+        previous
+      </button>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        style="margin-right: 10px"
+        (click)="onPhotoClick()"
+      >
+        Next
+      </button>
+    </form>
+  </div>
+  <!-- Address and other details end-->
+  <!-- photo start-->
+  <div *ngIf="photo" class="card-body">
+    <form (ngSubmit)="onSubmit()" #Form="ngForm">
+      <div class="form-group col-12">
+        <div class="form-group col-12">
+          <div class="photo-control">
+            <button class="mt-5" type="button">Upload</button> <br />
+            This is under construction
+          </div>
+        </div>
+      </div>
+
+      <br />
+      <button
+        type="submit"
+        class="btn btn-primary"
+        style="margin-right: 10px"
+        (click)="onAddressClick()"
+      >
+        Previous
+      </button>
+      <button type="submit" class="btn btn-primary" style="margin-right: 10px">
+        Save Data
+      </button>
+      <button type="reset" class="btn btn-primary ml-2">Reset Data</button>
+    </form>
+  </div>
+  <!-- photo end-->
+</div>

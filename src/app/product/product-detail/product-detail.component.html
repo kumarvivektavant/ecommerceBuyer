@@ -1,9 +1,9 @@
 <h1>selected product Is {{ productId }}</h1>
 <br />
-<button
-  class="btn btn-primary"
-  (click)="onSelectMext()"
-  routerLink="/product-detail/{{ productId }}"
->
+<button class="btn btn-primary" (click)="onSelectMext()">
   Select Next product
 </button>
+<br /><br />
+<button class="btn btn-primary" routerLink="/product-detail/1">1</button>
+<button class="btn btn-primary" routerLink="/product-detail/2">2</button>
+<button class="btn btn-primary" routerLink="/product-detail/3">3</button>

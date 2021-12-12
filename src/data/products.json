@@ -42,7 +42,7 @@
   {
     "Id": 3,
     "Name": "Mi A3",
-    "InGallery": 1,
+    "InGallery": 2,
     "Type": "Electronics and gadets",
     "Price": 12000,
     "Image": "product-1",
@@ -62,7 +62,7 @@
   {
     "Id": 4,
     "Name": "Mi A4",
-    "InGallery": 1,
+    "InGallery": 2,
     "Type": "Electronics and gadets",
     "Price": 12000,
     "Image": "product-1",

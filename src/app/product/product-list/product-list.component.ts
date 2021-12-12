@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { BuyerserviceService } from 'src/app/services/buyerservice.service';
 import { IProperty } from '../IProduct.interface';
 
@@ -8,11 +9,18 @@ import { IProperty } from '../IProduct.interface';
   styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent implements OnInit {
+  InGallery = 1;
   products: Array<IProperty> = [];
-  constructor(private buyerService: BuyerserviceService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private buyerService: BuyerserviceService
+  ) {}
 
   ngOnInit(): void {
-    this.buyerService.getAllProducts().subscribe(
+    if (this.route.snapshot.url.toString()) {
+      this.InGallery = 2; // for product in gallary
+    }
+    this.buyerService.getAllProducts(this.InGallery).subscribe(
       (data) => {
         this.products = data;
       },

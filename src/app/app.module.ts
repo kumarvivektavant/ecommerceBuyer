@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
@@ -13,6 +13,9 @@ import { AddProductComponent } from './product/add-product/add-product.component
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { BuyerserviceService } from './services/buyerservice.service';
+import { UserServiceService } from './services/user-service.service';
+import { TestComponent } from './test/test.component';
+import { AuthService } from './services/auth.service';
 
 const appRoutes: Routes = [
   { path: '', component: ProductListComponent },
@@ -21,6 +24,7 @@ const appRoutes: Routes = [
   { path: 'product-detail/:id', component: ProductDetailComponent },
   { path: 'buyer/login', component: LoginComponent },
   { path: 'buyer/register', component: RegisterComponent },
+  { path: 'test', component: TestComponent },
   { path: '**', component: ProductListComponent },
 ];
 
@@ -34,14 +38,17 @@ const appRoutes: Routes = [
     ProductCardComponent,
     ProductDetailComponent,
     AddProductComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
-  providers: [BuyerserviceService],
+  providers: [BuyerserviceService, UserServiceService, AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
