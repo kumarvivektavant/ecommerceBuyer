@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BuyerserviceService } from 'src/app/services/buyerservice.service';
-import { IProperty } from '../IProduct.interface';
+import { IProduct } from '../IProduct.interface';
 
 @Component({
   selector: 'app-product-list',
@@ -10,7 +10,7 @@ import { IProperty } from '../IProduct.interface';
 })
 export class ProductListComponent implements OnInit {
   InGallery = 1;
-  products: Array<IProperty> = [];
+  products: Array<IProduct> = [];
   constructor(
     private route: ActivatedRoute,
     private buyerService: BuyerserviceService,

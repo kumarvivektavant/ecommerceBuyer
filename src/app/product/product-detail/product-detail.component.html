@@ -1,9 +1,60 @@
-<h1>selected product Is {{ productId }}</h1>
-<br />
-<button class="btn btn-primary" (click)="onSelectMext()">
-  Select Next product
-</button>
-<br /><br />
-<button class="btn btn-primary" routerLink="/product-detail/1">1</button>
-<button class="btn btn-primary" routerLink="/product-detail/2">2</button>
-<button class="btn btn-primary" routerLink="/product-detail/3">3</button>
+<div class="container">
+  <!-- product -->
+  <div class="product-content product-wrap clearfix product-deatil">
+    <div class="row">
+      <div class="col-md-5 col-sm-12 col-xs-12">
+        <div class="product-image img-wraper">
+          <div id="myCarousel-2" class="carousel slide">
+            <img class="img-wraper" src="assets/images/prop-1.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-md-offset-1 col-sm-12 col-xs-12">
+        <h2 class="name">
+          {{ product.Name }}
+        </h2>
+        <h6>Brand : {{ product.Brand }}</h6>
+        <hr />
+        <h3 class="price-container">
+          Price : {{ product.Price }}
+          <small>*includes tax</small>
+        </h3>
+        <div class="certified">
+          <ul>
+            <li>
+              <a href="javascript:void(0);"
+                >Delivery time<span>7 Working Days</span></a
+              >
+            </li>
+            <li>
+              <a href="javascript:void(0);"
+                >Certified<span>Quality Assured</span></a
+              >
+            </li>
+          </ul>
+        </div>
+        <hr />
+        <div class="description description-tabs">
+          <ul id="myTab" class="nav nav-pills">
+            <li class="active">description : {{ product.desc }}</li>
+            <li class="">
+              <a href="#specifications" data-toggle="tab">Specifications</a>
+            </li>
+            <li class=""><a href="#reviews" data-toggle="tab">Reviews</a></li>
+          </ul>
+
+          <hr />
+          <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-6">
+              <a href="javascript:void(0);" class="btn btn-success btn-lg"
+                >Delete Item</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end product -->
+  </div>
+</div>

@@ -16,104 +16,8 @@
     "desc": "Lorium ipsum"
   },
   {
-    "Id": 1,
-    "Name": "Mi A1",
-    "InGallery": 1,
-    "Type": "Electronics and gadets",
-    "Price": 12000,
-    "Image": "product-1",
-    "Brand": "MI",
-
-    "sub_type": "Mobie phones",
-    "country": "IN",
-    "Title_of_product": "Mobiles",
-    "quantity": 10,
-    "terms_and_condition": "free freee freee",
-    "desc": "Lorium ipsum"
-  },
-  {
-    "Id": 1,
-    "Name": "Mi A1",
-    "InGallery": 1,
-    "Type": "Electronics and gadets",
-    "Price": 12000,
-    "Image": "product-1",
-    "Brand": "MI",
-
-    "sub_type": "Mobie phones",
-    "country": "IN",
-    "Title_of_product": "Mobiles",
-    "quantity": 10,
-    "terms_and_condition": "free freee freee",
-    "desc": "Lorium ipsum"
-  },
-  {
-    "Id": 1,
-    "Name": "Mi A1",
-    "InGallery": 1,
-    "Type": "Electronics and gadets",
-    "Price": 12000,
-    "Image": "product-1",
-    "Brand": "MI",
-
-    "sub_type": "Mobie phones",
-    "country": "IN",
-    "Title_of_product": "Mobiles",
-    "quantity": 10,
-    "terms_and_condition": "free freee freee",
-    "desc": "Lorium ipsum"
-  },
-  {
-    "Id": 1,
-    "Name": "Mi A1",
-    "InGallery": 1,
-    "Type": "Electronics and gadets",
-    "Price": 12000,
-    "Image": "product-1",
-    "Brand": "MI",
-
-    "sub_type": "Mobie phones",
-    "country": "IN",
-    "Title_of_product": "Mobiles",
-    "quantity": 10,
-    "terms_and_condition": "free freee freee",
-    "desc": "Lorium ipsum"
-  },
-  {
-    "Id": 1,
-    "Name": "Mi A1",
-    "InGallery": 1,
-    "Type": "Electronics and gadets",
-    "Price": 12000,
-    "Image": "product-1",
-    "Brand": "MI",
-
-    "sub_type": "Mobie phones",
-    "country": "IN",
-    "Title_of_product": "Mobiles",
-    "quantity": 10,
-    "terms_and_condition": "free freee freee",
-    "desc": "Lorium ipsum"
-  },
-  {
-    "Id": 1,
-    "Name": "Mi A1",
-    "InGallery": 1,
-    "Type": "Electronics and gadets",
-    "Price": 12000,
-    "Image": "product-1",
-    "Brand": "MI",
-
-    "sub_type": "Mobie phones",
-    "country": "IN",
-    "Title_of_product": "Mobiles",
-    "quantity": 10,
-    "terms_and_condition": "free freee freee",
-    "desc": "Lorium ipsum"
-  },
-  {
     "Id": 2,
-    "Name": "Mi A2",
+    "Name": "Mi A1",
     "InGallery": 1,
     "Type": "Electronics and gadets",
     "Price": 12000,
@@ -129,6 +33,102 @@
   },
   {
     "Id": 3,
+    "Name": "Mi A1",
+    "InGallery": 1,
+    "Type": "Electronics and gadets",
+    "Price": 12000,
+    "Image": "product-1",
+    "Brand": "MI",
+
+    "sub_type": "Mobie phones",
+    "country": "IN",
+    "Title_of_product": "Mobiles",
+    "quantity": 10,
+    "terms_and_condition": "free freee freee",
+    "desc": "Lorium ipsum"
+  },
+  {
+    "Id": 4,
+    "Name": "Mi A1",
+    "InGallery": 1,
+    "Type": "Electronics and gadets",
+    "Price": 12000,
+    "Image": "product-1",
+    "Brand": "MI",
+
+    "sub_type": "Mobie phones",
+    "country": "IN",
+    "Title_of_product": "Mobiles",
+    "quantity": 10,
+    "terms_and_condition": "free freee freee",
+    "desc": "Lorium ipsum"
+  },
+  {
+    "Id": 5,
+    "Name": "Mi A1",
+    "InGallery": 1,
+    "Type": "Electronics and gadets",
+    "Price": 12000,
+    "Image": "product-1",
+    "Brand": "MI",
+
+    "sub_type": "Mobie phones",
+    "country": "IN",
+    "Title_of_product": "Mobiles",
+    "quantity": 10,
+    "terms_and_condition": "free freee freee",
+    "desc": "Lorium ipsum"
+  },
+  {
+    "Id": 6,
+    "Name": "Mi A1",
+    "InGallery": 1,
+    "Type": "Electronics and gadets",
+    "Price": 12000,
+    "Image": "product-1",
+    "Brand": "MI",
+
+    "sub_type": "Mobie phones",
+    "country": "IN",
+    "Title_of_product": "Mobiles",
+    "quantity": 10,
+    "terms_and_condition": "free freee freee",
+    "desc": "Lorium ipsum"
+  },
+  {
+    "Id": 7,
+    "Name": "Mi A1",
+    "InGallery": 1,
+    "Type": "Electronics and gadets",
+    "Price": 12000,
+    "Image": "product-1",
+    "Brand": "MI",
+
+    "sub_type": "Mobie phones",
+    "country": "IN",
+    "Title_of_product": "Mobiles",
+    "quantity": 10,
+    "terms_and_condition": "free freee freee",
+    "desc": "Lorium ipsum"
+  },
+  {
+    "Id": 8,
+    "Name": "Mi A2",
+    "InGallery": 1,
+    "Type": "Electronics and gadets",
+    "Price": 12000,
+    "Image": "product-1",
+    "Brand": "MI",
+
+    "sub_type": "Mobie phones",
+    "country": "IN",
+    "Title_of_product": "Mobiles",
+    "quantity": 10,
+    "terms_and_condition": "free freee freee",
+    "desc": "Lorium ipsum"
+  },
+  {
+    "Id": 9,
     "Name": "Mi A3",
     "InGallery": 2,
     "Type": "Electronics and gadets",
@@ -144,7 +144,7 @@
     "desc": "Lorium ipsum"
   },
   {
-    "Id": 4,
+    "Id": 10,
     "Name": "Mi A4",
     "InGallery": 2,
     "Type": "Electronics and gadets",
