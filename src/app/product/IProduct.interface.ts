@@ -11,4 +11,5 @@ export interface IProduct {
   quantity: number;
   terms_and_condition: string;
   description: string;
+  shipping_Time: string;
 }

@@ -13,14 +13,20 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
   onLogin(loginForm: NgForm) {
+    console.log('hello i am in login.ts onlogin');
     console.log(loginForm.value.email);
-    const token = this.authService.authUser(loginForm.value);
-    if (token) {
-      localStorage.setItem('token', token.userName);
-      console.log('login Successful');
-      this.router.navigateByUrl('/');
-    } else {
-      console.log('Login not succseeful');
-    }
+    this.authService.authUser(loginForm.value).subscribe((result) => {
+      console.log('i am in api response ');
+      console.log(result);
+    });
+
+    // console.log('getting token login.ts', token);
+    // if (token) {
+    //   localStorage.setItem('token', token.email);
+    //   console.log('login Successful');
+    //   this.router.navigateByUrl('/');
+    // } else {
+    //   console.log('Login not succseeful');
+    // }
   }
 }

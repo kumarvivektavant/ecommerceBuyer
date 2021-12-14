@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { User } from 'src/app/model/user';
+import { AuthService } from 'src/app/services/auth.service';
 import { UserServiceService } from 'src/app/services/user-service.service';
 
 @Component({
@@ -14,57 +15,66 @@ import { UserServiceService } from 'src/app/services/user-service.service';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-  registrationForm!: FormGroup;
+  registrationForm: FormGroup | any;
   user: User = {
-    userName: '',
-    email: '',
-    password: '',
-    mobile: 0,
+    firstName: '',
+    lastName: '',
+    emailId: '',
+    sellerPassword: '',
+    mobileNo: 0,
+    country: '',
+    sellerAddress: '',
+    companyName: '',
+    companyUrl: '',
   };
   constructor(
     private fb: FormBuilder,
-    private userService: UserServiceService
+    private userService: UserServiceService,
+    private authservice: AuthService
   ) {}
 
   ngOnInit(): void {
     this.registrationForm = new FormGroup({
-      userName: new FormControl(null, Validators.required),
-      email: new FormControl(null, [Validators.required, Validators.email]),
-      password: new FormControl(null, [
+      country: new FormControl(null, Validators.required),
+      sellerAddress: new FormControl(null, Validators.required),
+      companyName: new FormControl(null, Validators.required),
+      companyUrl: new FormControl(null, Validators.required),
+      firstName: new FormControl(null, Validators.required),
+      lastName: new FormControl(null, Validators.required),
+      emailId: new FormControl(null, [Validators.required, Validators.email]),
+      sellerPassword: new FormControl(null, [
         Validators.required,
         Validators.minLength(8),
       ]),
       confirmPassword: new FormControl(null, [Validators.required]),
-      mobile: new FormControl(null, [
+      mobileNo: new FormControl(null, [
         Validators.required,
         Validators.minLength(10),
       ]),
     });
-    //this.createRegistrationForm();
   }
-
-  // createRegistrationForm() {
-  //   this.registrationForm = this.fb.group({
-  //     userName: [null, Validators.required],
-  //     email: [null, [Validators.required, Validators.email]],
-  //     password: [null, [Validators.required, Validators.minLength(8)]],
-  //     confirmPassword: [null, Validators.required],
-  //     mobile: [null, Validators.required, Validators.minLength(10)],
-  //   });
-  // }
   uerData(): User {
     return (this.user = {
-      userName: this.registrationForm.value.userName,
-      email: this.registrationForm.value.email,
-      password: this.registrationForm.value.password,
-      mobile: this.registrationForm.value.mobile,
+      firstName: this.registrationForm.value.firstName,
+      lastName: this.registrationForm.value.lastName,
+      emailId: this.registrationForm.value.emailId,
+      sellerPassword: this.registrationForm.value.sellerPassword,
+      mobileNo: this.registrationForm.value.mobileNo,
+      country: this.registrationForm.value.country,
+      sellerAddress: this.registrationForm.value.sellerAddress,
+      companyName: this.registrationForm.value.companyName,
+      companyUrl: this.registrationForm.value.companyUrl,
     });
   }
-  onSubmit(): void {
-    console.log(this.registrationForm.value);
+  onSubmit(registrationForm: FormGroup) {
+    //good till here//console.log('data from reg form', this.registrationForm.value);
     this.user = Object.assign(this.uerData());
     //localStorage.setItem('user', JSON.stringify(this.user));
-    this.userService.addUser(this.user);
+    console.log('i am register ts file after object assigning', this.user);
+
+    this.authservice.addAByer(this.user).subscribe((result) => {
+      console.log(result);
+    });
     this.registrationForm.reset();
   }
 }

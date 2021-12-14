@@ -7,6 +7,7 @@ import { User } from '../model/user';
 export class UserServiceService {
   constructor() {}
   addUser(user: User) {
+    //console.log('iam in user service ts file', user);
     let users = [];
     if (localStorage.getItem('users')) {
       users = JSON.parse(localStorage.getItem('users') || '{}');

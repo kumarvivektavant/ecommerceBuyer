@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { IProduct } from '../product/IProduct.interface';
 import { Observable } from 'rxjs';
+import { Product } from '../model/Product';
 
 @Injectable({
   providedIn: 'root',
@@ -38,6 +39,12 @@ export class BuyerserviceService {
         });
         return this.product;
       })
+    );
+  }
+  addAProduct(product: Product): Observable<any> {
+    return this.http.post(
+      'http://localhost:34365/api/ProductEmpty/AddProduct',
+      product
     );
   }
 }
