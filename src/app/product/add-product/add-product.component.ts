@@ -7,6 +7,7 @@ import {
   AngularFireStorage,
   AngularFireUploadTask,
 } from '@angular/fire/compat/storage';
+import { Image } from 'src/app/model/image';
 
 @Component({
   selector: 'app-add-product',
@@ -14,9 +15,10 @@ import {
   styleUrls: ['./add-product.component.css'],
 })
 export class AddProductComponent implements OnInit {
-  imageArray: Array<string> = [];
-  basePath = '/images'; //  <<<<<<<
-  downloadableURL = ''; //  <<<<<<<
+  imageArray: Array<{ productImageUrl: string; imageCaption: string }> = [];
+  imageUrlArray: Array<string> = [];
+  basePath = '/images';
+  downloadableURL = '';
   task!: AngularFireUploadTask;
   addProductForm: FormGroup | any;
   product: Product = {
@@ -89,6 +91,16 @@ export class AddProductComponent implements OnInit {
   }
   onSubmit(addProductForm: FormGroup) {
     this.product = Object.assign(this.productData());
+
+    this.imageUrlArray.forEach((element) => {
+      var currurl = {
+        productImageUrl: element,
+        imageCaption: this.product.productName,
+      };
+      this.imageArray.push(currurl);
+      console.log('after pushing all images inimageArray', this.imageArray);
+    });
+    Object.assign(this.product, { productImages: this.imageArray });
     console.log('i am in adding a product', this.product);
     this.buyerService.addAProduct(this.product).subscribe((result) => {
       console.log('geeting response from add product api', result);
@@ -137,8 +149,8 @@ export class AddProductComponent implements OnInit {
 
       (await this.task).ref.getDownloadURL().then((url) => {
         this.downloadableURL = url;
-        this.imageArray.push(this.downloadableURL);
-        console.log(this.imageArray);
+        this.imageUrlArray.push(this.downloadableURL);
+        console.log(this.imageUrlArray);
       });
       // (await this.task).ref.getDownloadURL().then(URL: => {this.downloadableURL = URL; });
     } else {
