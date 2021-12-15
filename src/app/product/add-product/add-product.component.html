@@ -1,33 +1,38 @@
 <div class="card">
   <!-- Navigation Tab start -->
-  <div class="card-header">
-    <ul class="nav nav-pills">
-      <li class="nav-item">
-        <a
-          class="nav-link"
-          [ngClass]="basicDetails ? 'active' : ''"
-          aria-current="page"
-          (click)="onDasicDetailsClick()"
-          >Basic Details Entry</a
-        >
-      </li>
-      <li class="nav-item">
-        <a
-          class="nav-link"
-          (click)="onDescClick()"
-          [ngClass]="desc ? 'active' : 'notactive'"
-          >Description</a
-        >
-      </li>
-      <li class="nav-item">
-        <a
-          class="nav-link"
-          (click)="onPhotoClick()"
-          [ngClass]="photo ? 'active' : ''"
-          >Photo</a
-        >
-      </li>
-    </ul>
+  <div class="header">
+    <div class="card-header">
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a
+            class="nav__header"
+            [ngClass]="basicDetails ? 'active' : ''"
+            aria-current="page"
+            style="color: white; font-weight: 500"
+            (click)="onDasicDetailsClick()"
+            >Basic Details Entry&nbsp;&nbsp;</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            style="color: white; font-weight: 500"
+            class="nav__header"
+            (click)="onDescClick()"
+            [ngClass]="desc ? 'active' : 'notactive'"
+            >Description&nbsp;&nbsp;</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            style="color: white; font-weight: 500"
+            class="nav__header"
+            (click)="onPhotoClick()"
+            [ngClass]="photo ? 'active' : ''"
+            >Photo</a
+          >
+        </li>
+      </ul>
+    </div>
   </div>
   <!-- Navigation Tab end -->
 
@@ -139,8 +144,8 @@
       <br />
       <button
         type="submit"
-        class="btn btn-primary"
-        style="margin-right: 10px"
+        class="btn"
+        style="margin-right: 10px; color: white; font-weight: 450"
         (click)="onDescClick()"
       >
         Next
@@ -191,16 +196,16 @@
       <br />
       <button
         type="submit"
-        class="btn btn-primary"
-        style="margin-right: 10px"
+        class="btn"
         (click)="onDasicDetailsClick()"
+        style="margin-right: 10px; color: white; font-weight: 450"
       >
         previous
       </button>
       <button
         type="submit"
-        class="btn btn-primary"
-        style="margin-right: 10px"
+        class="btn"
+        style="margin-right: 10px; color: white; font-weight: 450"
         (click)="onPhotoClick()"
       >
         Next
@@ -212,24 +217,52 @@
       <div class="form-group col-12">
         <div class="form-group col-12">
           <div class="photo-control">
-            <button class="mt-5" type="button">Upload</button> <br />
-            This is under construction
+            <input
+              type="file"
+              name="file"
+              (input)="onFileChanged($event)"
+              accept=".jpeg,.jpg,.png,.svg"
+            />
+
+            <br />
+
+            <img
+              [src]="downloadableURL"
+              onerror="this.onerror=null;this.src='assets/noimage.jpg';"
+              width="300px"
+              height="300px"
+            />
+
+            <br />
+            {{ downloadableURL }}
+            <!-- <button class="mt-5" type="button">Upload</button> <br />
+            This is under construction -->
           </div>
         </div>
       </div>
       <br />
       <button
         type="submit"
-        class="btn btn-primary"
-        style="margin-right: 10px"
+        class="btn"
+        style="margin-right: 10px; color: white; font-weight: 450"
         (click)="onDescClick()"
       >
         Previous
       </button>
 
-      <button type="reset" class="btn btn-primary ml-2">Reset Data</button>
+      <button
+        type="reset"
+        class="btn ml-2"
+        style="margin-right: 10px; color: white; font-weight: 450"
+      >
+        Reset Data
+      </button>
     </div>
-    <button type="submit" class="btn btn-primary" style="margin-right: 10px">
+    <button
+      type="submit"
+      class="btn"
+      style="margin-right: 10px; color: white; font-weight: 450"
+    >
       Save Data
     </button>
   </form>

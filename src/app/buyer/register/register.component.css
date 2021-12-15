@@ -1,0 +1,13 @@
+.card-header {
+  background-color: #51aca5;
+}
+.btn {
+  background-color: #65ccb8;
+}
+.btn:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+.card-body {
+  font-family: poppins, sans-serif;
+}

@@ -16,6 +16,15 @@ import { BuyerserviceService } from './services/buyerservice.service';
 import { UserServiceService } from './services/user-service.service';
 import { TestComponent } from './test/test.component';
 import { AuthService } from './services/auth.service';
+import { environment } from '../environments/environment';
+
+import { AngularFireModule } from '@angular/fire/compat'; // For setup
+
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database'; // For database
+
+import { AngularFirestore } from '@angular/fire/compat/firestore'; // For database --> firestore
+
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 
 const appRoutes: Routes = [
   { path: '', component: ProductListComponent },
@@ -47,6 +56,9 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireStorageModule,
   ],
   providers: [BuyerserviceService, UserServiceService, AuthService],
   bootstrap: [AppComponent],

@@ -1,7 +1,17 @@
 .nav.navbar-nav.navbar-right li a {
-  color: blue;
+  color: white;
+}
+.navbar {
+  background-color: #f2f2f2;
 }
 .btn-success {
   background-color: white;
   color: #171729;
+}
+.Header__header__logo {
+  height: 40px;
+}
+.header__nav {
+  background-color: #51aca5;
+  font-family: poppins;
 }

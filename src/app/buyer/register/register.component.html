@@ -1,7 +1,20 @@
 <div class="row">
   <div class="col-6 m-auto">
     <div class="card m-auto">
-      <div class="card-header">Register</div>
+      <div
+        class="card-header"
+        style="
+          color: white;
+
+          font-weight: 500;
+
+          text-align: center;
+
+          font-family: poppins;
+        "
+      >
+        Register
+      </div>
       <div class="card-body">
         <form
           [formGroup]="registrationForm"
@@ -84,11 +97,7 @@
           </div>
           <br />
           <div class="form-group col-12">
-            <button
-              type="submit"
-              class="btn btn-primary"
-              style="margin-right: 5px"
-            >
+            <button type="submit" class="btn" style="margin-right: 5px">
               Save
             </button>
             <button type="reset" class="btn btn-secondary ml-2">Cancel</button>

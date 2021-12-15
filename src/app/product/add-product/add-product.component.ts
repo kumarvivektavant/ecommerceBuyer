@@ -3,6 +3,10 @@ import { Router } from '@angular/router';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Product } from 'src/app/model/Product';
 import { BuyerserviceService } from 'src/app/services/buyerservice.service';
+import {
+  AngularFireStorage,
+  AngularFireUploadTask,
+} from '@angular/fire/compat/storage';
 
 @Component({
   selector: 'app-add-product',
@@ -10,6 +14,10 @@ import { BuyerserviceService } from 'src/app/services/buyerservice.service';
   styleUrls: ['./add-product.component.css'],
 })
 export class AddProductComponent implements OnInit {
+  imageArray: Array<string> = [];
+  basePath = '/images'; //  <<<<<<<
+  downloadableURL = ''; //  <<<<<<<
+  task!: AngularFireUploadTask;
   addProductForm: FormGroup | any;
   product: Product = {
     sellerId: 0,
@@ -35,7 +43,8 @@ export class AddProductComponent implements OnInit {
   private seller_id: number = 1;
   constructor(
     private router: Router,
-    private buyerService: BuyerserviceService
+    private buyerService: BuyerserviceService,
+    private fireStorage: AngularFireStorage
   ) {}
 
   ngOnInit(): void {
@@ -117,5 +126,26 @@ export class AddProductComponent implements OnInit {
       return;
     }
     this.quantity -= 1;
+  }
+  async onFileChanged(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      const filePath = `${this.basePath}/${file.name}`; // path at which image will be stored in the firebase storage
+      this.task = this.fireStorage.upload(filePath, file); // upload task
+
+      // this.progress = this.snapTask.percentageChanges();
+
+      (await this.task).ref.getDownloadURL().then((url) => {
+        this.downloadableURL = url;
+        this.imageArray.push(this.downloadableURL);
+        console.log(this.imageArray);
+      });
+      // (await this.task).ref.getDownloadURL().then(URL: => {this.downloadableURL = URL; });
+    } else {
+      alert('No images selected');
+
+      //console.log(this.downloadableURL);
+      this.downloadableURL = '';
+    }
   }
 }

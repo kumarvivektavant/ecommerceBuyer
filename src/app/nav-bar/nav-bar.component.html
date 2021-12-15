@@ -1,30 +1,39 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark text-primary fixed-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Shoop loop</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            aria-current="page"
-            routerLinkActive="active"
-            routerLink="/"
-            [routerLinkActiveOptions]="{ exact: true }"
-            >Products</a
-          >
-        </li>
-        <!-- <li class="nav-item">
+<div class="header__nav">
+  <nav class="navbar navbar-expand-lg text-info fixed-top">
+    <div class="container-fluid">
+      <img
+        class="Header__header__logo"
+        src="https://www.graphicsprings.com/filestorage/stencils/1cf0e62090ebd950855b702c81587979.png"
+        alt=""
+      />
+      <p style="font-family: poppins; justify-content: center">
+        BetterMart &nbsp;
+      </p>
+      <!-- <a class="navbar-brand" href="#">Shoop loop</a> -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a
+              class="nav-link text-dark"
+              aria-current="page"
+              routerLinkActive="active"
+              routerLink="/"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >Products</a
+            >
+          </li>
+          <!-- <li class="nav-item">
           <a
             class="nav-link"
             aria-current="page"
@@ -34,67 +43,69 @@
             >Products in galary</a
           >
         </li> -->
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            routerLinkActive="active"
-            routerLink="/add-product"
-            >Add products(its Free)</a
-          >
-        </li>
-        <!-- <li class="nav-item">
+          <li class="nav-item">
+            <a
+              class="nav-link text-dark"
+              routerLinkActive="active"
+              routerLink="/add-product"
+              >Add products(its Free)</a
+            >
+          </li>
+          <!-- <li class="nav-item">
           <a class="nav-link" routerLinkActive="active" routerLink="/test"
             >Test</a
           >
         </li> -->
-      </ul>
-      <div>
-        <ul class="nav navbar-nav">
-          <li *ngIf="!isLoggedin" class="nav-item">
-            <a
-              class="nav-link"
-              routerLink="/buyer/register"
-              routerLinkActive="active"
-              >Register</a
-            >
-          </li>
-          <li *ngIf="!isLoggedin" class="nav-item">
-            <a
-              class="nav-link"
-              routerLink="/buyer/login"
-              routerLinkActive="active"
-              >Login</a
-            >
-          </li>
-          <!-- <li *ngIf="loggedIn()" class="nav-item">
+        </ul>
+        <div>
+          <ul class="nav navbar-nav">
+            <li *ngIf="!isLoggedin" class="nav-item">
+              <a
+                class="nav-link text-dark"
+                routerLink="/buyer/register"
+                routerLinkActive="active"
+                >Register</a
+              >
+            </li>
+            <li *ngIf="!isLoggedin" class="nav-item">
+              <a
+                class="nav-link text-dark"
+                routerLink="/buyer/login"
+                routerLinkActive="active"
+                >Login</a
+              >
+            </li>
+            <!-- <li *ngIf="loggedIn()" class="nav-item">
             <a class="nav-link" (click)="onLogOut()">Logout</a>
           </li> -->
-          <div *ngIf="isLoggedin" class="dropdown" [(ngModel)]="isLoggedin">
-            <button class="btn btn-sm btn-success" id="showbutton">
-              Welcome {{ UserData.firstName }}
-              <span class="glyphicon glyphicon-chevron-down"></span>
-            </button>
-            <div
-              *ngIf="isLoggedin"
-              class="dropdown-menu"
-              id="showing"
-              [(ngModel)]="isLoggedin"
-            >
-              <a class="dropdown-item" href="#">
-                <i class="fas fa-tachometer-alt" style="margin-right: 5px"></i
-                >Dashbord
-              </a>
-              <a class="dropdown-item" href="#"
-                ><i class="fas fa-user" style="margin-right: 5px"></i>Profile</a
+            <div *ngIf="isLoggedin" class="dropdown" [(ngModel)]="isLoggedin">
+              <button class="btn btn-sm btn-success" id="showbutton">
+                Welcome {{ UserData.firstName }}
+                <span class="glyphicon glyphicon-chevron-down"></span>
+              </button>
+              <div
+                *ngIf="isLoggedin"
+                class="dropdown-menu"
+                id="showing"
+                [(ngModel)]="isLoggedin"
               >
-              <a class="dropdown-item" (click)="onLogOut()">
-                <i class="fas fa-sign-out-alt" style="margin-right: 5px"></i
-                >Logout</a
-              >
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-tachometer-alt" style="margin-right: 5px"></i
+                  >Dashbord
+                </a>
+                <a class="dropdown-item" href="#"
+                  ><i class="fas fa-user" style="margin-right: 5px"></i
+                  >Profile</a
+                >
+                <a class="dropdown-item" (click)="onLogOut()">
+                  <i class="fas fa-sign-out-alt" style="margin-right: 5px"></i
+                  >Logout</a
+                >
+              </div>
             </div>
-          </div>
-        </ul>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-</nav>
+  </nav>
+</div>
