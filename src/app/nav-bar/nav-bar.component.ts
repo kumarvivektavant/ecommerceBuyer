@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -8,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class NavBarComponent implements OnInit {
   loggedInUser: any;
   isLoggedin: boolean = false;
-  constructor() {
+  currentUser: any;
+  constructor(public authService: AuthService) {
     this.loggedIn();
   }
 
@@ -19,6 +21,8 @@ export class NavBarComponent implements OnInit {
     if (localStorage.getItem('token')) {
       this.isLoggedin = true;
     }
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+    console.log('iam in nav geeting seller userdata', this.currentUser);
     this.loggedInUser = localStorage.getItem('token');
     return localStorage.getItem('token');
   }

@@ -1,11 +1,20 @@
 <div class="card" style="width: 250px; height: 300px">
   <div class="card-img-wraper p-2">
-    <img class="card-img-top" src="assets/images/{{ product.Image }}.jpg" />
+    <img
+      *ngIf="product.Image"
+      class="card-img-top"
+      src="assets/images/{{ product.Image }}.jpg"
+    />
+    <img
+      *ngIf="!product.Image"
+      class="card-img-top"
+      src="assets/images/defaultProduct.jpg"
+    />
     <ul class="list-inline text-center member-icons animate">
       <li class="list-inline-item text-center">
         <button
           class="btn btn-primary"
-          routerLink="/product-detail/{{ product.Id }}"
+          routerLink="/product-detail/{{ product.productId }}"
         >
           <i class="far fa-edit"></i>
         </button>
@@ -18,8 +27,8 @@
     </ul>
   </div>
   <div class="card-body p-2">
-    <h3>Name :{{ product.Name }}</h3>
-    <p>Brand :{{ product.Brand }}</p>
+    <h3>Name :{{ product.productName }}</h3>
+    <p>Brand :{{ product.productBrandName }}</p>
     <!-- <p>Type :{{ product.Type }}</p>
     <p>Price :{{ product.Price }}</p> -->
     <p></p>

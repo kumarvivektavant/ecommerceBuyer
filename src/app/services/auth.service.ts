@@ -7,24 +7,14 @@ import { User } from '../model/user';
   providedIn: 'root',
 })
 export class AuthService {
+  public currentUser: any;
   constructor(private http: HttpClient) {}
   authUser(user: any): Observable<any> {
-    console.log(user.email);
-    // let UserArray = [];
-    // if (localStorage.getItem('users')) {
-    //   UserArray = JSON.parse(localStorage.getItem('users') || '{}');
-    // }
-    // return UserArray.find(
-    //   (p: { email: any; password: any }) =>
-    //     p.email === user.email && p.password === user.password
-    // );
-    const params = new HttpParams()
-      .set('Email', user.email)
-      .set('Password', user.password);
-    console.log('Hello i am in just above api call');
+    console.log('Hello i am in just above api call in auth service auth user');
+    console.log(user.emailId);
     return this.http.post(
       'http://localhost:34365/api/Seller/SellerLogin',
-      params
+      user
     );
   }
   addAByer(user: User): Observable<any> {
@@ -32,6 +22,11 @@ export class AuthService {
     return this.http.post(
       'http://localhost:34365/api/Seller/SellerRegister',
       user
+    );
+  }
+  getbuyer(emailId: string) {
+    return this.http.get<any>(
+      `http://localhost:34365/api/Seller/GetSellerDetailsByEmail?Email=${emailId}`
     );
   }
 }

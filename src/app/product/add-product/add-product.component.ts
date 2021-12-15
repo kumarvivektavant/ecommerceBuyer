@@ -22,6 +22,9 @@ export class AddProductComponent implements OnInit {
     productDescription: '',
     productCountryOrigin: '',
     productTermsAndCondition: '',
+    productQuantity: 0,
+    deliveryTime: '',
+    productsSold: 0,
   };
   basicDetails = false;
   desc = false;
@@ -49,6 +52,9 @@ export class AddProductComponent implements OnInit {
       productDescription: new FormControl(null, [Validators.required]),
       productCountryOrigin: new FormControl(null, [Validators.required]),
       productTermsAndCondition: new FormControl(null, [Validators.required]),
+      productQuantity: new FormControl(null, [Validators.required]),
+      deliveryTime: new FormControl(null, [Validators.required]),
+      productsSold: new FormControl(null, [Validators.required]),
     });
   }
   productData(): Product {
@@ -64,6 +70,9 @@ export class AddProductComponent implements OnInit {
       productCountryOrigin: this.addProductForm.value.productCountryOrigin,
       productTermsAndCondition:
         this.addProductForm.value.productTermsAndCondition,
+      productQuantity: this.quantity,
+      deliveryTime: this.addProductForm.value.deliveryTime,
+      productsSold: 0,
     });
   }
   onBack() {

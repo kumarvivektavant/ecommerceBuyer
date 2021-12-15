@@ -4,6 +4,9 @@ export interface Product {
   productType: string;
   productSubType: string;
   productName: string;
+  productQuantity: number;
+  deliveryTime: string;
+  productsSold: number;
   productPrice: number;
   deliveryCharges: number;
   productDescription: string;

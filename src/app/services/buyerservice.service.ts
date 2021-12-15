@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { IProduct } from '../product/IProduct.interface';
 import { Observable } from 'rxjs';
@@ -12,18 +12,25 @@ export class BuyerserviceService {
   product: IProduct | any;
   productById: any;
   constructor(private http: HttpClient) {}
-  getAllProducts(InGallery: number) {
-    return this.http.get<IProduct[]>('data/products.json').pipe(
-      map((data) => {
-        const productArray: Array<IProduct> = [];
-        data.forEach((element) => {
-          if (element.InGallery == InGallery) {
+  getAllProducts(sellerId: number) {
+    return this.http
+      .get<Product[]>(
+        `http://localhost:34365/api/ProductEmpty/GetProductDetailsById?SellerRegId=${sellerId}`
+      )
+      .pipe(
+        map((data) => {
+          const productArray: Array<Product> = [];
+          //works fine till here
+          data.forEach((element) => {
             productArray.push(element);
-          }
-        });
-        return productArray;
-      })
-    );
+          });
+          console.log(
+            'i am in buyer service and this is get all product api',
+            productArray
+          );
+          return productArray;
+        })
+      );
   }
   getAProduct(productId: number): Observable<any> {
     return this.http.get<IProduct[]>('data/products.json').pipe(
@@ -43,7 +50,7 @@ export class BuyerserviceService {
   }
   addAProduct(product: Product): Observable<any> {
     return this.http.post(
-      'http://localhost:34365/api/ProductEmpty/AddProduct',
+      'http://localhost:34365/api/ProdcutImage/AddProduct',
       product
     );
   }

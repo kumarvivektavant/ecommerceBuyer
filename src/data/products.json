@@ -1,11 +1,10 @@
 [
   {
     "Id": 1,
-    "Name": "Mi A1",
+    "Name": "Mi A9999",
     "InGallery": 1,
     "Type": "Electronics and gadets",
     "Price": 12000,
-    "Image": "product-1",
     "Brand": "MI",
 
     "sub_type": "Mobie phones",
