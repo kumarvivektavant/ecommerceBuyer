@@ -12,19 +12,23 @@
 
       <div class="col-md-6 col-md-offset-1 col-sm-12 col-xs-12">
         <h2 class="name">
-          {{ product.Name }}
+          {{ product[0].productName }}
         </h2>
-        <h6>Brand : {{ product.Brand }}</h6>
+        <h6>Brand : {{ product[0].productBrandName }}</h6>
+        <h6>Category : {{ product[0].productType }}</h6>
+        <h6>SUB Category : {{ product[0].productSubType }}</h6>
         <hr />
         <h3 class="price-container">
-          Price : {{ product.Price }}
+          Price : {{ product[0].productPrice }}
           <small>*includes tax</small>
         </h3>
         <div class="certified">
           <ul>
             <li>
               <a href="javascript:void(0);"
-                >Delivery time<span>7 Working Days</span></a
+                >Delivery time<span
+                  >{{ product[0].deliveryTime }} working days</span
+                ></a
               >
             </li>
             <li>
@@ -35,26 +39,30 @@
           </ul>
         </div>
         <hr />
-        <div class="description description-tabs">
-          <ul id="myTab" class="nav nav-pills">
-            <li class="active">description : {{ product.desc }}</li>
-            <li class="">
-              <a href="#specifications" data-toggle="tab">Specifications</a>
-            </li>
-            <li class=""><a href="#reviews" data-toggle="tab">Reviews</a></li>
-          </ul>
-
-          <hr />
-          <div class="row">
-            <div class="col-sm-12 col-md-6 col-lg-6">
-              <a href="javascript:void(0);" class="btn btn-success btn-lg"
-                >Delete Item</a
-              >
-            </div>
+        <h6>Quantity Available : {{ product[0].productQuantity }}</h6>
+        <h6>dilivery Charges : {{ product[0].deliveryCharge }}</h6>
+        <h6>Product Sold : {{ product[0].productsSold }}</h6>
+        <ul id="myTab" class="nav nav-pills">
+          <li class="active">
+            Country Origin : {{ product[0].productionCountryOrigin }}
+          </li>
+          <li class="active">
+            Terms and Conditions : {{ product[0].productTermsandCondition }}
+          </li>
+          <li class="active">
+            description : {{ product[0].productDescription }}
+          </li>
+        </ul>
+        <br />
+        <div class="row">
+          <div class="col-sm-12 col-md-6 col-lg-6">
+            <a href="javascript:void(0);" class="btn btn-success btn-lg"
+              >Delete Item</a
+            >
           </div>
         </div>
+        <!-- end product -->
       </div>
     </div>
-    <!-- end product -->
   </div>
 </div>
