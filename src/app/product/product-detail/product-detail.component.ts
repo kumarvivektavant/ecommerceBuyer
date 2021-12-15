@@ -20,13 +20,14 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit(): void {
     this.productId = Number(this.route.snapshot.params['id']);
     this.route.params.subscribe((params) => {
-      this.productId = +params['id'];
+      this.productId = Number(params['id']);
+      //getting id as number
     });
     this.buyerService.getAProduct(this.productId).subscribe(
       (data) => {
         console.log(data);
         this.product = data;
-        console.log('in pro det', this.product);
+        console.log('in pro dettttt', this.product.value);
       },
       (error) => {
         console.log(error);

@@ -21,6 +21,8 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.sellerId = Number(localStorage.getItem('token'));
+    console.log('i am in product list lll', this.sellerId);
     this.buyerService.getAllProducts(this.sellerId).subscribe(
       (data) => {
         this.products = data;

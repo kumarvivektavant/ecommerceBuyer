@@ -33,19 +33,8 @@ export class BuyerserviceService {
       );
   }
   getAProduct(productId: number): Observable<any> {
-    return this.http.get<IProduct[]>('data/products.json').pipe(
-      map((data) => {
-        data.forEach((element) => {
-          if (element.Id == productId) {
-            debugger;
-            this.product = element;
-
-            console.log('in service');
-            return this.product;
-          }
-        });
-        return this.product;
-      })
+    return this.http.get<any>(
+      `http://localhost:34365/api/ProductEmpty/GetProductsDetailsByProductId?ProductId=${productId}`
     );
   }
   addAProduct(product: Product): Observable<any> {

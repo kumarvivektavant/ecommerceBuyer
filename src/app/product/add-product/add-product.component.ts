@@ -59,7 +59,7 @@ export class AddProductComponent implements OnInit {
   }
   productData(): Product {
     return (this.product = {
-      sellerId: this.seller_id,
+      sellerId: Number(localStorage.getItem('token')),
       productBrandName: this.addProductForm.value.productBrandName,
       productType: this.addProductForm.value.productType,
       productSubType: this.addProductForm.value.productSubType,
@@ -80,9 +80,9 @@ export class AddProductComponent implements OnInit {
   }
   onSubmit(addProductForm: FormGroup) {
     this.product = Object.assign(this.productData());
-    console.log(this.product);
+    console.log('i am in adding a product', this.product);
     this.buyerService.addAProduct(this.product).subscribe((result) => {
-      console.log(result);
+      console.log('geeting response from add product api', result);
     });
   }
   onDasicDetailsClick() {
