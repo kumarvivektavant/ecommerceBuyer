@@ -10,7 +10,7 @@ import { IProduct } from '../IProduct.interface';
   styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent implements OnInit {
-  sellerId = 2;
+  sellerId = Number(localStorage.getItem('token'));
   products: Array<Product> = [];
   constructor(
     private route: ActivatedRoute,

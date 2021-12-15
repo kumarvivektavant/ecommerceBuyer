@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../model/user';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -8,6 +9,18 @@ import { AuthService } from '../services/auth.service';
 })
 export class NavBarComponent implements OnInit {
   loggedInUser: any;
+  loggedInUserid: any;
+  UserData: User = {
+    firstName: '',
+    lastName: '',
+    emailId: '',
+    sellerPassword: '',
+    mobileNo: 0,
+    country: '',
+    sellerAddress: '',
+    companyName: '',
+    companyUrl: '',
+  };
   isLoggedin: boolean = false;
   currentUser: any;
   constructor(public authService: AuthService) {
@@ -23,8 +36,12 @@ export class NavBarComponent implements OnInit {
     }
     this.currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
     console.log('iam in nav geeting seller userdata', this.currentUser);
-    this.loggedInUser = localStorage.getItem('token');
-    return localStorage.getItem('token');
+    this.loggedInUser = Number(localStorage.getItem('token'));
+    this.loggedInUserid = Number(localStorage.getItem('token'));
+    this.authService.getbuyerdata(this.loggedInUserid).subscribe((data) => {
+      this.UserData = Object.assign(data);
+      console.log('getting userdata', this.UserData.lastName);
+    });
   }
   onLogOut() {
     this.isLoggedin = false;

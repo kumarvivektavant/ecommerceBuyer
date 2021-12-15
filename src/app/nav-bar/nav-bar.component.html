@@ -24,7 +24,7 @@
             >Products</a
           >
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a
             class="nav-link"
             aria-current="page"
@@ -33,7 +33,7 @@
             [routerLinkActiveOptions]="{ exact: true }"
             >Products in galary</a
           >
-        </li>
+        </li> -->
         <li class="nav-item">
           <a
             class="nav-link"
@@ -42,11 +42,11 @@
             >Add products(its Free)</a
           >
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" routerLinkActive="active" routerLink="/test"
             >Test</a
           >
-        </li>
+        </li> -->
       </ul>
       <div>
         <ul class="nav navbar-nav">
@@ -71,7 +71,7 @@
           </li> -->
           <div *ngIf="isLoggedin" class="dropdown" [(ngModel)]="isLoggedin">
             <button class="btn btn-sm btn-success" id="showbutton">
-              Welcome {{ loggedInUser }}
+              Welcome {{ UserData.firstName }}
               <span class="glyphicon glyphicon-chevron-down"></span>
             </button>
             <div

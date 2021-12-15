@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { User } from 'src/app/model/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserServiceService } from 'src/app/services/user-service.service';
@@ -30,7 +31,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private userService: UserServiceService,
-    private authservice: AuthService
+    private authservice: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -76,5 +78,6 @@ export class RegisterComponent implements OnInit {
       console.log(result);
     });
     this.registrationForm.reset();
+    this.router.navigateByUrl('/buyer/login');
   }
 }

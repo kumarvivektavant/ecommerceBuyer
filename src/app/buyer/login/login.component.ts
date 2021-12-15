@@ -35,6 +35,10 @@ export class LoginComponent implements OnInit {
         this.authService.getbuyer(this.user.emailId).subscribe((res) => {
           localStorage.setItem('token', res.sellerRegId);
           this.router.navigateByUrl('/');
+          setTimeout(() => {
+            window.location.reload();
+          }, 500);
+          //window.location.reload();
         });
       }
     });

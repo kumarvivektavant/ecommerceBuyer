@@ -29,4 +29,9 @@ export class AuthService {
       `http://localhost:34365/api/Seller/GetSellerDetailsByEmail?Email=${emailId}`
     );
   }
+  getbuyerdata(loggedInUserid: number) {
+    return this.http.get(
+      `http://localhost:34365/api/Seller/GetSellerDetailsById?SellerRegId=${loggedInUserid}`
+    );
+  }
 }
