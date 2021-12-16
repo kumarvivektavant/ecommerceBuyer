@@ -11,6 +11,7 @@ import { IProduct } from '../IProduct.interface';
 export class ProductDetailComponent implements OnInit {
   public productId: number = 0;
   public product: any;
+  productImages: Array<any> = [];
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -22,6 +23,10 @@ export class ProductDetailComponent implements OnInit {
     this.route.params.subscribe((params) => {
       this.productId = Number(params['id']);
       //getting id as number
+    });
+    this.buyerService.getProductImage(this.productId).subscribe((data) => {
+      this.productImages = data;
+      console.log('getting image array', this.productImages);
     });
     this.buyerService.getAProduct(this.productId).subscribe(
       (data) => {

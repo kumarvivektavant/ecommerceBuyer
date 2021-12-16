@@ -105,6 +105,8 @@ export class AddProductComponent implements OnInit {
     this.buyerService.addAProduct(this.product).subscribe((result) => {
       console.log('geeting response from add product api', result);
     });
+    this.addProductForm.reset();
+    alert('Product uploaded successful');
   }
   onDasicDetailsClick() {
     this.basicDetails = true;
@@ -151,6 +153,7 @@ export class AddProductComponent implements OnInit {
         this.downloadableURL = url;
         this.imageUrlArray.push(this.downloadableURL);
         console.log(this.imageUrlArray);
+        alert('image uploaded ,again choose the file to upload again');
       });
       // (await this.task).ref.getDownloadURL().then(URL: => {this.downloadableURL = URL; });
     } else {

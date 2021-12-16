@@ -1,12 +1,8 @@
 <div class="card" style="width: 250px; height: 300px">
   <div class="card-img-wraper p-2">
+    <img *ngIf="foundImage" class="card-img-top" [src]="productImgUrl" />
     <img
-      *ngIf="product.Image"
-      class="card-img-top"
-      src="assets/images/{{ product.Image }}.jpg"
-    />
-    <img
-      *ngIf="!product.Image"
+      *ngIf="!foundImage"
       class="card-img-top"
       src="assets/images/defaultProduct.jpg"
     />

@@ -39,8 +39,13 @@ export class BuyerserviceService {
   }
   addAProduct(product: Product): Observable<any> {
     return this.http.post(
-      'http://localhost:34365/api/ProdcutImage/AddProduct',
+      'http://localhost:34365/api/ProductEmpty/AddProduct',
       product
+    );
+  }
+  getProductImage(productId: number) {
+    return this.http.get<any>(
+      `http://localhost:34365/api/ProductEmpty/GetProductImageDetailsByProductId?ProductId=${productId}`
     );
   }
 }
