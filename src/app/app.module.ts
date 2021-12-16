@@ -25,6 +25,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database'; // Fo
 import { AngularFirestore } from '@angular/fire/compat/firestore'; // For database --> firestore
 
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { DashbordComponent } from './buyer/dashbord/dashbord.component';
+import { LandingpageComponent } from './landingpage/landingpage.component';
 
 const appRoutes: Routes = [
   { path: '', component: ProductListComponent },
@@ -33,7 +35,9 @@ const appRoutes: Routes = [
   { path: 'product-detail/:id', component: ProductDetailComponent },
   { path: 'buyer/login', component: LoginComponent },
   { path: 'buyer/register', component: RegisterComponent },
+  { path: 'buyer/dashbord', component: DashbordComponent },
   { path: 'test', component: TestComponent },
+
   { path: '**', component: ProductListComponent },
 ];
 
@@ -48,6 +52,8 @@ const appRoutes: Routes = [
     ProductDetailComponent,
     AddProductComponent,
     TestComponent,
+    DashbordComponent,
+    LandingpageComponent,
   ],
   imports: [
     BrowserModule,

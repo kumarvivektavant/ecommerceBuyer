@@ -89,14 +89,14 @@
                 id="showing"
                 [(ngModel)]="isLoggedin"
               >
-                <a class="dropdown-item" href="#">
+                <a
+                  class="dropdown-item"
+                  routerLink="/buyer/dashbord"
+                  routerLinkActive="active"
+                >
                   <i class="fas fa-tachometer-alt" style="margin-right: 5px"></i
                   >Dashbord
                 </a>
-                <a class="dropdown-item" href="#"
-                  ><i class="fas fa-user" style="margin-right: 5px"></i
-                  >Profile</a
-                >
                 <a class="dropdown-item" (click)="onLogOut()">
                   <i class="fas fa-sign-out-alt" style="margin-right: 5px"></i
                   >Logout</a

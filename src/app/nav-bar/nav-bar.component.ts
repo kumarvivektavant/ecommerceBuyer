@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../model/user';
 import { AuthService } from '../services/auth.service';
 
@@ -23,7 +24,11 @@ export class NavBarComponent implements OnInit {
   };
   isLoggedin: boolean = false;
   currentUser: any;
-  constructor(public authService: AuthService) {
+  constructor(
+    public authService: AuthService,
+    private router: ActivatedRoute,
+    private route: Router
+  ) {
     this.loggedIn();
   }
 
@@ -46,6 +51,7 @@ export class NavBarComponent implements OnInit {
   onLogOut() {
     this.isLoggedin = false;
     localStorage.removeItem('token');
+    this.route.navigateByUrl('/');
     setTimeout(() => {
       window.location.reload();
     }, 500);
