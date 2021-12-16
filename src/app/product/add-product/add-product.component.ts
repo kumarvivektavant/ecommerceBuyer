@@ -48,7 +48,10 @@ export class AddProductComponent implements OnInit {
     private buyerService: BuyerserviceService,
     private fireStorage: AngularFireStorage
   ) {}
-
+  //////////////////////////////////////////////////////////////////
+  ///purpose:setting form for validation for adding a product
+  //Author:Kumar Vivek
+  /////////////////////////////////////////////////////////////////
   ngOnInit(): void {
     this.basicDetails = true;
     //for registration
@@ -68,6 +71,10 @@ export class AddProductComponent implements OnInit {
       productsSold: new FormControl(null, [Validators.required]),
     });
   }
+  //////////////////////////////////////////////////////////////////
+  ///purpose:Assigning data to form
+  //Author:Kumar Vivek
+  /////////////////////////////////////////////////////////////////
   productData(): Product {
     return (this.product = {
       sellerId: Number(localStorage.getItem('token')),
@@ -90,6 +97,10 @@ export class AddProductComponent implements OnInit {
   onBack() {
     this.router.navigate(['/']);
   }
+  //////////////////////////////////////////////////////////////////
+  ///purpose:sending product data to database
+  //Author:Kumar Vivek
+  /////////////////////////////////////////////////////////////////
   onSubmit(addProductForm: FormGroup) {
     this.product = Object.assign(this.productData());
 
@@ -109,6 +120,10 @@ export class AddProductComponent implements OnInit {
     this.addProductForm.reset();
     alert('Product uploaded successful');
   }
+  //////////////////////////////////////////////////////////////////
+  ///purpose:for navting in add product form
+  //Author:Kumar Vivek
+  /////////////////////////////////////////////////////////////////
   onDasicDetailsClick() {
     this.basicDetails = true;
     this.desc = false;
@@ -142,6 +157,10 @@ export class AddProductComponent implements OnInit {
     }
     this.quantity -= 1;
   }
+  //////////////////////////////////////////////////////////////////
+  ///purpose:for navting in add product form
+  //Author:Kumar Vivek
+  /////////////////////////////////////////////////////////////////
   async onFileChanged(event: any) {
     const file = event.target.files[0];
     if (file) {

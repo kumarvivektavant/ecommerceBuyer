@@ -19,15 +19,27 @@ export class ProductDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    //////////////////////////////////////////////////////////////////
+    ///purpose:fetch productId through URL triming
+    //Author:Kumar Vivek
+    /////////////////////////////////////////////////////////////////
     this.productId = Number(this.route.snapshot.params['id']);
     this.route.params.subscribe((params) => {
       this.productId = Number(params['id']);
       //getting id as number
     });
+    //////////////////////////////////////////////////////////////////
+    ///purpose:getting a product image to show inproduct detail page
+    //Author:Kumar Vivek
+    /////////////////////////////////////////////////////////////////
     this.buyerService.getProductImage(this.productId).subscribe((data) => {
       this.productImages = data;
       console.log('getting image array', this.productImages);
     });
+    //////////////////////////////////////////////////////////////////
+    ///purpose:getting a product
+    //Author:Kumar Vivek
+    /////////////////////////////////////////////////////////////////
     this.buyerService.getAProduct(this.productId).subscribe(
       (data) => {
         console.log(data);
