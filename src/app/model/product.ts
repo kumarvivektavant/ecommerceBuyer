@@ -8,8 +8,8 @@ export interface Product {
   deliveryTime: string;
   productsSold: number;
   productPrice: number;
-  deliveryCharges: number;
+  deliveryCharge: number;
   productDescription: string;
-  productCountryOrigin: string;
+  productionCountryOrigin: string;
   productTermsAndCondition: string;
 }
